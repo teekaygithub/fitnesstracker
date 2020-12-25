@@ -32,7 +32,9 @@ public class MainController {
     @PostMapping(path="/add")
     public @ResponseBody String logExercise(@RequestParam String name, @RequestParam Integer duration) {
         log.info("Serving POST request");
-        jdbcTemplate.execute("INSERT INTO exercises VALUES (0, \""+name+"\","+duration+")");
+        int rc = 0;
+        rc = jdbcTemplate.update("INSERT INTO exercises VALUES (0, ?, ?)", name, duration);
+        log.info("Return code: %d", rc);
         return "POST request complete";
     } 
 }
