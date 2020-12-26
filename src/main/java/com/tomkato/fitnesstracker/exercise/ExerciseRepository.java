@@ -38,4 +38,29 @@ public class ExerciseRepository {
                     )
         );
     }
+    
+    public Exercise findExerciseById(Integer id) {
+        
+        Exercise exercise;
+        
+        try {
+            String sql = "SELECT * FROM exercises where ID=?";
+            
+            exercise = jdbcTemplate.queryForObject(sql, new Object[]{id}, new ExerciseRowMapper());
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+        return exercise;
+    }
+    
+    public int deleteById(Integer id) {
+        int rc=0; // 0 = fail, 1 = success
+        Exercise exercise = findExerciseById(id);
+        if (exercise != null) {
+            String sql = "DELETE FROM exercises WHERE id=?";
+            rc=jdbcTemplate.update(sql, id);
+        }
+        return rc;
+    }
 }

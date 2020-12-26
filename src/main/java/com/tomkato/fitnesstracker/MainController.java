@@ -3,6 +3,8 @@ package com.tomkato.fitnesstracker; // TODO: create separate controller package
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,6 +43,13 @@ public class MainController {
         return exercises;
     }
     
+    @GetMapping(path="/log/{id}")
+    public @ResponseBody Exercise getExerciseById(@PathVariable Integer id) {
+        log.info("Serving GET request");
+        Exercise exercise = exerciseRepository.findExerciseById(id);
+        return exercise;
+    }
+    
     @PostMapping(path="/add")
     public @ResponseBody String logExercise(@RequestParam String name, @RequestParam Integer duration) {
         log.info("Serving POST request");
@@ -53,5 +62,13 @@ public class MainController {
         rc = exerciseRepository.save(exercise);
         log.info("Return code: {}", rc);
         return "POST request complete";
-    } 
+    }
+
+    @DeleteMapping(path="/delete/{id}")
+    public @ResponseBody String removeExercise(@PathVariable Integer id) {
+        log.info("Serving DELETE request");
+        int rc = exerciseRepository.deleteById(id);
+        log.info("DELETE request status code: {}", rc);
+        return "DELETE request complete";
+    }
 }
