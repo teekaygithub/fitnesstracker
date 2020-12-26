@@ -13,6 +13,7 @@ public class ExerciseRowMapper implements RowMapper<Exercise> {
         exercise.setId(rs.getInt("id"));
         exercise.setName(rs.getString("name"));
         exercise.setDuration(rs.getInt("duration"));
+        exercise.setDate(rs.getString("date"));
         
         return exercise;
     }
