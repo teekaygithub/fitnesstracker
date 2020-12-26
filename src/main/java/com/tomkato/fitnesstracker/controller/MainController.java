@@ -1,4 +1,4 @@
-package com.tomkato.fitnesstracker; // TODO: create separate controller package
+package com.tomkato.fitnesstracker.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
