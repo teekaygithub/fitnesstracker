@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.ui.Model;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -25,6 +26,16 @@ public class MainController {
     
     @Autowired
     private ExerciseRepository exerciseRepository;
+ 
+    @GetMapping(path="/")
+    public String welcomePage(Model model) {
+        return "welcome";
+    }
+    
+    @GetMapping(path="/home")
+    public String homePage(Model model) {
+        return "home";
+    }
     
     @GetMapping(path="/log")
     public @ResponseBody List<Exercise> getExerciseLog() {
