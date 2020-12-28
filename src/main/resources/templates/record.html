@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html   xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:th="https://www.thymeleaf.org">
+    <head>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+        <link rel="stylesheet" href="/public/welcomepage.css" />
+        <title>Record Your Exercise</title>
+    </head>
+    <body>
+        <div>
+            <a href="/home" style="float:left">Logo</a>
+        </div>
+        <h3 style="margin:20px 20px 20px 20px">Lets record your exercise</h3>
+        <div id="form-container" style="margin:auto 20px">
+            <form action="add" method="POST">
+                <div class="form-group">
+                    <label>What exercise did you do today?</label>
+                    <input type="text" class="form-control" name="name" placeHolder="e.g. Running" ></input>
+                </div>
+                <div class="form-group">
+                    <label>How many minutes?</label>
+                    <input type="number" class="form-control" name="duration" min="0" max="1440" placeHolder="e.g. 10" ></input>
+                </div>
+                <button type="submit" class="btn btn-primary">Log</input>
+            </form>
+        </div>
+    </body>
+</html>
