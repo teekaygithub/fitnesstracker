@@ -2,10 +2,19 @@
 <html   xmlns="http://www.w3.org/1999/xhtml" 
         xmlns:th="https://www.thymeleaf.org">
     <head>
+        <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+        <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+        <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+        <link rel="stylesheet" href="/public/homepage.css" />
         <title>Dashboard</title>
     </head>
     <body>
-        <h3>Hello!</h3>
-        <p>This is your dashboard</p>
+        <div id="greetings">
+            <h3>Hello!</h3>
+            <p>This is your dashboard</p>
+        </div>
+        <div id="test" class="row justify-content-center"></div>
+        <script th:src="@{/js/ExerciseLogTable.js}" type="text/babel"></script>
     </body>
 </html>
