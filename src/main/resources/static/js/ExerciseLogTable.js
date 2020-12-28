@@ -6,7 +6,7 @@ class ExerciseLogTable extends React.Component {
     }
     
     componentDidMount() {
-        fetch('http://localhost:8080/log')
+        fetch('/log')
         .then(response => response.json()
         .then(data => {
             console.log(data);
@@ -18,13 +18,17 @@ class ExerciseLogTable extends React.Component {
         const rows = this.state.exerciseData.map(logs => <tr><td>{logs.name}</td><td>{logs.duration}</td><td>{logs.date.replaceAll("-","/")}</td></tr>);
         return (
             <div className="col-auto">
-                <table className="table table-striped table-bordered table-responsive">
-                    <tr>
-                        <th>Exercise</th>
-                        <th>Duration (minutes)</th>
-                        <th>Date</th>
-                    </tr>
-                    {rows}
+                <table className="table table-striped table-hover table-bordered table-responsive">
+                    <thead className="thead-dark">
+                        <tr>
+                            <th>Exercise</th>
+                            <th>Duration (minutes)</th>
+                            <th>Date</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {rows}
+                    </tbody>
                 </table>
             </div>
         );
