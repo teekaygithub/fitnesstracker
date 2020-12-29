@@ -36,4 +36,4 @@ class ExerciseLogTable extends React.Component {
 }
 
 const exerciseTableContainer = document.getElementById("test");
-ReactDOM.render(React.createElement(ExerciseLogTable), exerciseTableContainer);
+ReactDOM.render(<ExerciseLogTable />, exerciseTableContainer);
