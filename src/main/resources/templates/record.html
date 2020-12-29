@@ -3,12 +3,13 @@
         xmlns:th="https://www.thymeleaf.org">
     <head>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
-        <link rel="stylesheet" href="/public/welcomepage.css" />
+        <link rel="stylesheet" href="/public/recordpage.css" />
         <title>Record Your Exercise</title>
     </head>
     <body>
-        <div>
+        <div id="banner" >
             <a href="/home" style="float:left">Logo</a>
+            <p />
         </div>
         <h3 style="margin:20px 20px 20px 20px">Lets record your exercise</h3>
         <div id="form-container" style="margin:auto 20px">
@@ -23,6 +24,9 @@
                 </div>
                 <button type="submit" class="btn btn-primary">Log</input>
             </form>
+        </div>
+        <div id="validation-container">
+            <p th:text="${validation}" class="bg-success" id="validation-text" />
         </div>
     </body>
 </html>

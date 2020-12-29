@@ -67,7 +67,7 @@ public class MainController {
     }
     
     @PostMapping(path="/add")
-    public @ResponseBody String logExercise(@RequestParam String name, @RequestParam Integer duration) {
+    public String logExercise(@RequestParam String name, @RequestParam Integer duration, Model model) {
         log.info("Serving POST request");
         
         int rc = 0;
@@ -77,7 +77,8 @@ public class MainController {
         
         rc = exerciseRepository.save(exercise);
         log.info("Return code: {}", rc);
-        return "POST request complete";
+        model.addAttribute("validation", "Exercise logged, great job!");
+        return "record";
     }
 
     @DeleteMapping(path="/delete/{id}")
