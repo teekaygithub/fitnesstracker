@@ -11,7 +11,7 @@ class ExerciseLogTable extends React.Component {
         .then(data => {
             console.log(data);
             this.setState({exerciseData: data});
-        }));
+        })).catch((error) => console.log("error:", error));
     }
     
     render() {
