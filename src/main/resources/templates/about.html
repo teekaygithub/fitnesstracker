@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html   xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:th="https://www.thymeleaf.org">
+    <head>
+        <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+        <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+        <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+        <link rel="stylesheet" href="/public/aboutpage.css" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Record Your Exercise</title>
+    </head>
+    <body>
+        <div id="banner" >
+            <a href="/home" style="float:left">Logo</a>
+            <p />
+        </div>
+        <h3 style="margin:20px 20px 20px 20px">About TomFit</h3>
+        <div id="aboutcontainer"></div>
+        <script th:src="@{/js/About.js}" type="text/babel"></script>
+    </body>
+</html>

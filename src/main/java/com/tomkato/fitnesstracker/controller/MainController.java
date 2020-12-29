@@ -59,6 +59,11 @@ public class MainController {
         return "record";
     }
     
+    @GetMapping(path="/about")
+    public String aboutPage(Model model) {
+        return "about";
+    }
+    
     @GetMapping(path="/log/{id}")
     public @ResponseBody Exercise getExerciseById(@PathVariable Integer id) {
         log.info("Serving GET request");
