@@ -29,4 +29,28 @@ public class MainControllerTest {
 		);
 		assertEquals(HttpStatus.OK, response.getStatusCode());
 	}
+    
+    @Test
+    public void getWelcome() throws Exception {
+        ResponseEntity<String> response = restTemplate.getForEntity(
+            new URL("http://localhost:" + port + "/").toString(), String.class
+        );
+        assertEquals(HttpStatus.OK, response.getStatusCode());
+    }
+    
+    @Test
+    public void getAbout() throws Exception {
+        ResponseEntity<String> response = restTemplate.getForEntity(
+            new URL("http://localhost:" + port + "/about").toString(), String.class
+        );
+        assertEquals(HttpStatus.OK, response.getStatusCode());
+    }
+    
+    @Test
+    public void getRecord() throws Exception {
+        ResponseEntity<String> response = restTemplate.getForEntity(
+            new URL("http://localhost:" + port + "/record").toString(), String.class
+        );
+        assertEquals(HttpStatus.OK, response.getStatusCode());
+    }
 }
