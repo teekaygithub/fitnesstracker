@@ -3,7 +3,6 @@ package com.tomkato.fitnesstracker.test;
 import com.tomkato.fitnesstracker.exercise.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.junit.Before;
 import org.junit.jupiter.api.Test;
 import org.skyscreamer.jsonassert.JSONAssert;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,15 +33,10 @@ public class MainControllerTest {
     @MockBean
     private ExerciseRepository mockRepository;
     
-    @Before
-    public void init() {
-        Exercise exercise = new Exercise(1, "running", 15, "2020-12-25");
-        when(mockRepository.findExerciseById(1)).thenReturn(exercise);
-    }
-    
     @Test
     public void getExerciseById() throws Exception {
-        
+        Exercise exercise = new Exercise(1, "running", 15, "2020-12-25");
+        when(mockRepository.findExerciseById(1)).thenReturn(exercise);
         String expected = "{id:1,name:\"running\",duration:15,date:\"2020-12-25\"}";
         
         ResponseEntity<String> response = restTemplate.getForEntity(
