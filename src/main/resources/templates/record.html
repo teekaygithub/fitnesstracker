@@ -8,10 +8,13 @@
         <title>Record Your Exercise</title>
     </head>
     <body>
-        <div id="banner" >
-            <a href="/home" style="float:left">Logo</a>
-            <p />
-        </div>
+        <nav class="navbar navbar-expand-sm bg-dark">
+            <div>
+                <a class="navbar-brand" href="/home">
+                    <img th:src="@{/image/logo.jpg}" alt="Logo" style="width:150px;">
+                </a>
+            </div>
+        </nav>
         <h3 style="margin:20px 20px 20px 20px">Lets record your exercise</h3>
         <div id="form-container" style="margin:auto 20px">
             <form action="add" method="POST">
