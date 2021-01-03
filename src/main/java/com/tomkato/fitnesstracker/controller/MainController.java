@@ -64,6 +64,11 @@ public class MainController {
         return "about";
     }
     
+    @GetMapping(path="/contact")
+    public String contactPage(Model model) {
+        return "contact";
+    }
+    
     @GetMapping(path="/log/{id}")
     public @ResponseBody Exercise getExerciseById(@PathVariable Integer id) {
         log.info("Serving GET request");
@@ -84,6 +89,14 @@ public class MainController {
         log.info("Return code: {}", rc);
         model.addAttribute("validation", "Exercise logged, great job!");
         return "record";
+    }
+    
+    @PostMapping(path="/addcontact")
+    public String addContact(@RequestParam String name, @RequestParam String email, @RequestParam String reference, @RequestParam String question, Model model) {
+        log.info("Serving POST request");
+        
+        model.addAttribute("validation", "Thanks for getting in touch with us!");
+        return "contact";
     }
 
     @DeleteMapping(path="/delete/{id}")
