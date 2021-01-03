@@ -2,14 +2,22 @@
 <html   xmlns="http://www.w3.org/1999/xhtml"
         xmlns:th="https://www.thymeleaf.org">
     <head>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" />
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
         <link rel="stylesheet" href="/public/welcomepage.css" />
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Welcome</title>
     </head>
     <body>
-        <h3>Welcome!</h3>
-        <p>Your fitness journey starts here</p>
-        <p>Your Dashboard: <a th:href="@{/home}" >Click Here</a></p>
+        <div class="container justify-content-center" style="text-align:center;margin-top: 50px">
+            <h1>Welcome!</h1>
+            <p style="margin: 20px auto;">Your fitness journey starts here</p>
+            <div style="margin: 20px auto;">
+                <i class="fas fa-running" ></i>
+                <i class="fas fa-biking" ></i>
+                <i class="fas fa-clock" ></i>
+            </div>
+            <p><a class="btn btn-primary" th:href="@{/home}" >Get Started</a></p>
+        </div>
     </body>
 </html>
